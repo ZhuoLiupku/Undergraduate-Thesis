@@ -87,7 +87,7 @@ $$D+{}^3 He \right {}^4He + p + 18.35MeV$$
 \item 高能粒子与阿尔芬波相互作用而激发的各种阿尔芬本征模(AEs)
 \item 高能粒子本身产生的不稳定性，如能量粒子模EPM
 \item 高能粒子与其它低频MHD模发生相互作用产生的不稳定性，如动力学气球模(KBM)，KBM的激发与压力梯度相关，环向模数n较大。
-
+    
 \end{itemize}
 理解这些非线性物理现象的物理机制需要我么对非线性的波-粒相互作用过程进行深入研究。\par
 
@@ -96,17 +96,9 @@ $$D+{}^3 He \right {}^4He + p + 18.35MeV$$
 的EP将与鱼骨模发生共振。最后，尽管目前检测到的AEs的振幅不是非常大，但是其导致的严重的快粒子径向输运和流失
 缺占据了很大一部分。\par
 最近在DIII-D 的实验中发现，低频模式造成的高能粒子损失占到了总损失一半，其很有可能是可压缩响应导致的比压型阿尔芬本征模
-(Beta-induced Alfven Eigenmode, BAE)以及与声波耦合产生的比压型阿尔芬声波本征模(Beta-induced Alfven Acoustic Eigenmode, BAAE)等低频模式造成的，这些低频模式的激发引起了研究人员的高度重视。事实上，目前有越来越多的装置
-发现了BAAE频率的存在（是否确定为BAAE尚存在疑问），包括DIII-D、JET、NSTX、ASDEX。而且BAAE不仅仅存在与低比压
-的环境中，在比压大于20\%的环境中也可以被激发。\par
-北京大学物理学院刘雅琪博士在前几年利用回旋动理学代码(Gyro-kinetic Toroidal Code, GTC)，在圆形截面的解析位型下
-对BAE和BAAE进行了模拟，对它们的激发机制进行了深入的研究并提出了创新性的观点。首先，刘雅琪博士利用GTC证实了BAAE
-的存在，这与MHD和局域理论的预言是不同的，BAAE在强朗道阻尼下仍然能够存在，这可能意味着BAAE需要一些非局域的理论
-来描述。第二，快离子的非微扰效应在BAAE的形成中至关重要。BAE和BAAE在增长阶段都会从快离子吸收能量然后通过朗道阻尼
-对热离子做功，快离子的温度、密度梯度等都会对BAAE的特征频率产生影响。第三，当装置尺寸增大时，最不稳定的模式
-由BAE向BAAE转化，并预测装置尺寸增大到ITER尺寸时，BAAE的增长率将远大于BAE。
+(Beta-induced Alfven Eigenmode, BAE)以及与声波耦合产生的比压型阿尔芬声波本征模(Beta-induced Alfven Acoustic Eigenmode, BAAE)等低频模式造成的，这些低频模式的激发引起了研究人员的高度重视。\par
 
 
 
-\End{spacing}
+\end{spacing}
 \end{document}
