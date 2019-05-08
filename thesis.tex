@@ -3,7 +3,7 @@
 %\setlength{\columnseprule}{0.05\columnwidth}
 
 \usepackage{fontspec}
-\setmainfont{Microsoft YaHei}
+%\setmainfont{Microsoft YaHei}
 
 \usepackage{bm}
 \usepackage{float}
@@ -58,6 +58,119 @@
 其次，AEs可以和快粒子发生强烈的共振，激发不稳定性模式。
 
 \subsection{BAE}
+
+\section{DIII-D中低频不稳定性的线性模拟}
+\subsection{高能离子激发的不稳定性的线性模拟}
+DIII-D是1980年代位于美国圣地亚哥的通用原子能公司（General Atomics, GA)在Doublet III装置的基础上建立的一个托卡马克
+，其主要目的是为托卡马克的设计优化建立物理基础，其等离子体截面呈"D"型。DIII-D代表了目前世界最先进
+磁约束聚变的技术水平，它最早使用中性粒子数注入手段加热等离子体，它可以精确并稳定地在一定范围内控制等离子体的形状和位置，
+图中展示了一些MHD可以产生的MHD平衡截面。\par
+\begin{figure}[h]%%图
+	\centering  
+	\includegraphics[width=0.9\linewidth]{./images/3/03.JPG} 
+	\caption{DIII-D中可以产生的MHD平衡截面}
+	\label{3-01} 
+\end{figure}
+近几年在DIII-D的实验中，发现了一些低频的不稳定性。前面已经提到了，在低频不稳定性爆发期间，系统损失了约45\%
+的加热功率，而低频频率恰处在BAE以及BAAE频率段，这让引起了许多研究人员的密切关注。在第一章中我已经简要介绍了刘雅琪博士在这一方面的工作，
+现在我将接着刘雅琪博士的工作，继续使用GTC对快粒子激发的低频不稳定性的线性模拟性模式进行模拟以及研究，并偏重于研究DIII-D中的对应情况。\par
+本章中模拟采用的数据来自DIII-D第146094次放电，GTC采用实验平衡数据（EFIT)用ORBIT绘图代码转换成GTC可以使用的输入数据。
+这次实验中，最不稳定的环向模数为 n=2，4，6，在 n=2 的高频段，较宽的间隙可能存在离散的TAE 和 RSAE 本征模（约 70~90kHz 等离子体坐标系，或 100~120kHz 实验坐标系），
+低频段（10~50kHz）的$\beta$间隙，可能存在离散的 BAE 和 BAAE本征模，恰处于实验中低频不稳定性的频率范围。通过阿尔芬波声波连续谱，可以初步判断本征模所处的径向位置以及频率范围。
+\begin{figure}[h]
+    \begin{minipage}[t]{0.45\linewidth}
+    \centering    
+    \includegraphics[width=0.9\textwidth]{./images/3/02.JPG}
+    \caption{DIII-D实验EFIT输出的平衡位型和GTC输入的比较}%图片的名称
+    \label{3-03-1}%标签，用作
+    \end{minipage} 
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{./images/3/04.JPG}
+    \caption{GTC模拟区域示意图，内外环形是场模拟的内外边界，中间环对应$q_min$所在位置}
+    \label{3-03-2}
+    \end{minipage}
+\end{figure}
+在这一章所有的模拟中，我都将采用这一次放电的平衡剖面。在这次实验中，有效大半径$R_0 = m$，小半径$a=m$，磁轴处磁场为$B_0 = $，
+磁轴处电子温度$ $，电子密度$ $，离子温度，离子密度，快粒子温度，快离子密度，比压值为。安全因子q呈剪切位型，最小值$q_min = 1.44$。
+整体模拟所采用背景等离子体的平衡如图所示，快粒子面以及。\par
+\begin{figure}[ht]%%图
+	\centering  
+    \includegraphics[width=0.8\linewidth]{./images/3/07.JPG} 
+    \caption{DIII-D \#146094次放电电子、离子、快离子的温度、密度以及安全因子q的剖面图}
+	\label{3-04} 
+\end{figure}
+我们先采用高能粒子（快粒子）在真实实验参数下进行激发，在模拟开始之前，我们先对抗磁漂移频率以及坐标系之间频率关联
+作一定的计算。注意GTC模拟是包含抗磁漂移效应($\omega_*)$的，实验室坐标下的频率$\omega_{lab}$与等离子体坐标下的频率$\omega_{plasma}$是有一定差别的，
+它们具体的解析关系不能清楚地写出，但是我们可以通过加减$\omega_*$的方式来做简单的估计。\par
+考虑热离子和快离子的压强梯度（包括密度梯度和温度梯度效应）
+\begin{eqnarray*}
+\omega_* = -i\bm{\star} \cdot \nabla  = m(\bm{v_{\star}}\cdot \nabla \theta) \\
+\bm{v_{\star}} = \frac{n_{oi}m_i \bf{v_{\star i}} + n_{of}m_f \bf{v_{\star f}}}{n_{oi}m_i + n_{of}m_f}\\
+\bm{v_{\star \alpha}} = \frac{c\bm{B_0}\times \nabla P_{0\alpha}}{Z_{\alpha}B_0^2 n_{o\alpha}}, P_{0\alpha} = n_{\alpha}T_{\alpha}
+\end{eqnarray*}
+\begin{figure}[h]%%图
+	\centering  
+	\includegraphics[width=0.9\linewidth]{./images/3/08.JPG} 
+	\caption{离子、快离子的温度、密度梯度的剖面图}
+	\label{3-05} 
+\end{figure}
+按照上述方法计算，在我们的平衡中，快离子贡献的抗磁漂移占，其中快离子的密度梯度的成分又在快离子中占主要成分，贡献了。
+可以看出，在实验位型下，由于快离子面的大梯度，抗磁漂移的频率非常大，在$m=6$的模式中抗磁漂移的频率就与BAAE的频率相当了，
+在更高模数的模式中，或者在更大装置尺寸的模拟中，抗磁漂移的频率甚至超过了BAAE的频率，这对我们利用频率的判断造成了非常大
+的影响，也对模拟中激发BAAE所在频率的模式造成了一定的困难。\par
+在这次模拟中，我对环向模数n进行扫描(n=2,4,6)，保留所有纵向模数m(对应GTC中nfilter=1)，其最不稳定的纵向模式
+分别为$m=3,m=6, m=9$。提取$(2,3),(4,6), (6,9)$这几个模式，得到的频率与增长率结果如图所示。\par
+
+\begin{figure}[h]
+    \begin{minipage}[t]{0.5\linewidth}
+    \centering    
+    \includegraphics[width=1.0\textwidth]{./images/3/05.JPG}
+    \caption{(m,n)=(2,3),(4,6),(6,9)三支模线性模拟的频率f，抗磁漂移f*,以及f-f*}%图片的名称
+    \label{3-06-1}%标签，用作
+    \end{minipage} 
+    \hfill
+    \begin{minipage}[t]{0.5\linewidth}
+    \centering
+    \includegraphics[width=1.0\textwidth]{./images/3/06.JPG}
+    \caption{(m,n)=(2,3),(4,6),(6,9)三支模线性模拟的圆频率$\omega$，以及增长率$\gamma$}
+    \label{3-06-2}
+    \end{minipage}
+\end{figure}
+
+可以看出来，第一，在线性模拟中我们只得到了单一频率的模式；第二，模拟中最不稳定的模式为n=4，其频率为，增长率为，；
+第三，在不同模数的模拟中，得到的频率随纵向模数的增加而增加，我尝试在得到的频率中直接减去每个模对应的抗磁漂移
+频率，得到的$f-f*$结果还比较一致。从第三点可以看出，假设不同纵向模式数对应的同一种模式频率差别不太大，
+用减法来估计抗磁漂移频率的作用是比较合理的一种方式。\par
+我们选取最不稳定的模式，n=4的模式，做出其静电势以及矢势的平行分量的极向以及径向的模结构。
+从极向模结构来看，其拥有类似三角形的模结构，但是又与圆位型下的不太一致。这里的模结构三角形没有那么明显，与之前
+观测到的RSAE的模结构有一些类似之处。
+\begin{figure}[h]
+    \begin{minipage}[t]{0.95\linewidth}
+    \centering    
+    \includegraphics[width=0.9\textwidth]{./images/3/09.JPG}
+    \caption{(m,n)=(4,6)在线性模拟中静电势$\phi$模结构}%图片的名称
+    \label{3-07-1}%标签，用作
+    \end{minipage} 
+    \vfill
+    \begin{minipage}[t]{0.95\linewidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{./images/3/10.JPG}
+    \caption{(m,n)=(4,6)在线性模拟中磁矢势平行分量$A_{\parallel}$模结构}
+    \label{3-07-2}
+    \end{minipage}
+\end{figure}
+利用MHD代码ALCON绘制阿尔芬-声波连续谱，我们将n=6模模拟得到的频率f和减去抗磁漂移数值的频率同时画在阿尔芬波-声波连续谱中。
+\begin{figure}[h]%%图
+	\centering  
+	\includegraphics[width=0.9\linewidth]{./images/3/11.JPG} 
+	\caption{ DIII-D \#146094 环向模数n=4 的阿尔芬波-声波连续谱，其中粗线是阿尔芬波谱，细线是声波谱}
+	\label{3-08} 
+\end{figure}
+我们可以发现，GTC模拟得到的频率落在BAE间隙的上方，靠近RSAE频率，但是减去抗磁漂移的频率后，其落在BAE的区间内。我们初步判定在线性模拟中，
+我们得到的是一个单一频率的模，它的频率和特征更靠近于BAE。\par
+显然在DIII-D的GTC线性模拟中，我们没有得到BAAE的频率。我尝试了天线扫频。
 
 \end{spacing}
 \end{document}
